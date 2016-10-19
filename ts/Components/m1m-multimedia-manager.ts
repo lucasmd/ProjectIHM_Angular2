@@ -2,37 +2,63 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
 const htmlTemplate = `
-	<h1>Composant de gestion des ressources multimédias</h1>
-	<h1>{{title}}</h1>
-	<hr/>
-    <section alx-dragdrop >
-        <h3>Liste des lecteurs UPnP/DLNA</h3>
-        <ul>
-            <li *ngFor="let renderer of mediaRenderers">
-                <p alx-dropzone (On-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
-                <m1m-pilote [nf]="renderer"></m1m-pilote>
-            </li>
-        </ul>
-    </section>
-    
-    <section>
-        <h3>Liste des serveurs UPnP/DLNA</h3>
-        <ul>
-            <li *ngFor="let server of mediaServers">
-                <p>{{server.name}}</p>
-                <p (dblclick)="browse(server)">
-                    {{server | json}}
-                </p>
-                <component-data-browse [ms]="server"></component-data-browse>
-            </li>
-        </ul>
+<header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Open Source Home Theater Software</div>
+                <div class="intro-heading"> Gerer vos médias sur les serveurs distants</div>
+                <a href="#services" class="btn btn-primary btn-large">Démarrez !</a>
+            </div>
+        </div>
+    </header>
+	<section alx-dragdrop id="services">
+        <div class="container">
+            <div class="row  text-center">
+				<h1>Composant de gestion des ressources multimédias</h1>
+				<h1>{{title}}</h1>
+			</div>
+			
+			<hr/>
+            <div class="row text-center">
+                <div class="col-md-6">
+                   
+                    <section>
+                <h3>Liste des lecteurs UPnP/DLNA</h3>
+                <ul>
+                    <li *ngFor="let renderer of mediaRenderers">
+                        <p alx-dropzone (On-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
+                        <m1m-pilote [nf]="renderer"></m1m-pilote>
+                    </li>
+                </ul>
+            </section>
+                </div>
+                <div class="col-md-6">
+                    <section>
+                    
+                <h3>Liste des serveurs UPnP/DLNA</h3>
+                <ul>
+                    <li *ngFor="let server of mediaServers">
+                        <p>{{server.name}}</p>
+                        <p (dblclick)="browse(server)">
+                            {{server | json}}
+                        </p>
+                        <component-data-browse [ms]="server"></component-data-browse>
+                    </li>
+                </ul>
+            </section>
+                </div>
+            </div>
+        </div>
     </section>
 `;
 
 @Component({
     selector		: "comp-multimedia-manager",
     template		: htmlTemplate,
-    providers       : [CommService]
+    providers       : [CommService],
+    styleUrls: [
+        'css/css.css'
+    ]
 })
 export class CompMultimediaManager {
     @Input() title	: string;
