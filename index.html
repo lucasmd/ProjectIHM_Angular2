@@ -1,24 +1,48 @@
+
 <!doctype html>
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <html lang="fr">
-	<head>
-        <meta charset="utf-8" />
-		<title>Projet de gestion multimédia M1-MIAGE</title>
+<head>
+	<div ng-include src="navbar.html"></div>
+	<meta charset="utf-8" />
+	<title>Projet de gestion multimédia M1-MIAGE</title>
 
-		<!-- 1. Load libraries -->
-		<!-- Polyfill(s) for older browsers -->
-		<script src="node_modules/core-js/client/shim.min.js"></script>
-		<script src="node_modules/zone.js/dist/zone.js"></script>
-		<script src="node_modules/reflect-metadata/Reflect.js"></script>
-		<script src="node_modules/systemjs/dist/system.src.js"></script>
-		<!-- 2. Configure SystemJS -->
-		<script src="systemjs.config.js"></script>
-		<script>
-			System.import('main').catch(function(err){ console.error(err); });
-		</script>
+	<!-- 1. Load libraries -->
+	<!-- Polyfill(s) for older browsers -->
+	<script src="node_modules/core-js/client/shim.min.js"></script>
+	<script src="node_modules/zone.js/dist/zone.js"></script>
+	<script src="node_modules/reflect-metadata/Reflect.js"></script>
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<!-- 2. Configure SystemJS -->
+	<script src="systemjs.config.js"></script>
+	<script>
+		System.import('main').catch(function(err){ console.error(err); });
+	</script>
 
-	</head>
-	<body>
-		<root-manager></root-manager>
-	</body>
+</head>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Projet</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Listes des serveurs <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Liste des players</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<body>
+<root-manager></root-manager>
+</body>
 </html>

@@ -8,6 +8,9 @@ import { FormsModule }   			from "@angular/forms";
 import {HttpModule} 				from "@angular/http";
 
 import { CompMultimediaManager } from "./Components/m1m-multimedia-manager";
+import { M1mMedia } from "./Components/media";
+import { M1mPilotage } from "./Components/Pilotage";
+import { ComponentDataBrowse } from "./Components/Repertoire";
 
 @Component({
 	selector	: "root-manager",
@@ -21,7 +24,7 @@ class RootManager {
 //enableProdMode();
 @NgModule({
 	imports     : [BrowserModule, FormsModule, HttpModule],
-	declarations: [RootManager, CompMultimediaManager],
+	declarations: [RootManager, CompMultimediaManager, M1mPilotage, M1mMedia, ComponentDataBrowse],
 	bootstrap   : [RootManager]
 })
 export class AppModule {}

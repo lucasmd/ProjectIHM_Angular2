@@ -21,7 +21,7 @@ export interface MediaServer   extends Brick {
 export interface DataInit {
     mediaRenderers  : MediaRenderer[];
     mediaServers    : MediaServer  [];
-};
+}
 
 export interface Directory {
     serverId    : string;
@@ -45,11 +45,11 @@ export interface Media {
     classe          : string;
 }
 export interface DataBrowse {
-    parentDirectory : string;
+    directoryId     : string;
     directories     : Directory[];
     medias          : Media[];
     error           : string;
-};
+}
 
 let initDone = false;
 @Injectable()
@@ -122,7 +122,7 @@ export class CommService {
         directoryId = directoryId || 0;
         return utils.call( mediaServerId, "Browse", [directoryId] ).then( (dataString) => {
             let dataBrowse : DataBrowse = {
-                parentDirectory : directoryId,
+                directoryId     : directoryId,
                 directories     : [],
                 medias          : [],
                 error           : null
@@ -171,5 +171,5 @@ export class CommService {
                 } // End of items parsing
             } catch(err) {dataBrowse.error = err;}
             return dataBrowse;
-    });
-}};
+        });
+    }};
