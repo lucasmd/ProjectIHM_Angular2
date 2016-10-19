@@ -2,7 +2,6 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
 const htmlTemplate = `
-
 <header>
         <div class="container">
             <div class="intro-text">
@@ -12,7 +11,7 @@ const htmlTemplate = `
             </div>
         </div>
     </header>
-	<section id="services">
+	<section alx-dragdrop id="services">
         <div class="container">
             <div class="row  text-center">
 				<h1>Composant de gestion des ressources multimédias</h1>
@@ -27,7 +26,7 @@ const htmlTemplate = `
                 <h3>Liste des lecteurs UPnP/DLNA</h3>
                 <ul>
                     <li *ngFor="let renderer of mediaRenderers">
-                        <p>{{renderer.name}}</p>
+                        <p alx-dropzone (On-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
                         <m1m-pilote [nf]="renderer"></m1m-pilote>
                     </li>
                 </ul>
@@ -53,7 +52,6 @@ const htmlTemplate = `
             </div>
         </div>
     </section>
-   
 `;
 
 @Component({
@@ -69,6 +67,7 @@ export class CompMultimediaManager {
     mediaRenderers  : MediaRenderer[];
     mediaServers    : MediaServer  [];
     medias          : Media[];
+    cs              : CommService;
     constructor(private comm: CommService) {
         console.log( "CommService:", comm);
         comm.init().subscribe( (data: DataInit) => {
@@ -82,6 +81,14 @@ export class CompMultimediaManager {
             console.log( "Browse", ms.id, directoryId, "=>", data );
             ms.directories  = data.directories;
             this.medias     = data.medias;
+        });
+    }
+
+    loadAndPlay(mediaRendererId: string, itemId: string, serverId: string) {
+        console.log("loadAndPlay de ", itemId, "depuis", serverId, "sur", mediaRendererId);
+        return this.cs.loadMedia(mediaRendererId, serverId, itemId).then(() => {
+            console.log("fin de chargement, je play");
+            this.cs.play(mediaRendererId);
         });
     }
 };

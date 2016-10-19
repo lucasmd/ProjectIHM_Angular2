@@ -171,5 +171,5 @@ export class CommService {
                 } // End of items parsing
             } catch(err) {dataBrowse.error = err;}
             return dataBrowse;
-        });
-    }};
+    });
+}};

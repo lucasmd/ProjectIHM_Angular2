@@ -12,12 +12,12 @@ const htmlTemplate = `
                 </section>
             </li>
             <li *ngFor="let directory of dataBrowse.directories">
-                <section (dblclick)="browse(directory.directory,directory.name)">
+                <section (dblclick)="avant(directory.directory,directory.name)">
                     {{directory.name}}                
                 </section>
             </li>
             <li *ngFor="let media of dataBrowse.medias">
-                <section (dblclick)="loadAndPlay('dc6371ba-7bf3-81a4-3db3-4a9db9f92710',media.mediaId)">
+                <section [alx-draggable]="{serverId: ms.id, mediaId: media.mediaId}">
                     {{media.title}}
                     {{media.mediaId}}
                 </section>
@@ -55,17 +55,19 @@ export class ComponentDataBrowse implements OnInit  {
     avant(directoryId: string, directoryName : string ){
         this.directories.push( directoryId );
         this.directoriesName.push( directoryName );
+        console.log("directories id",this.directories);
+        console.log("directories name",this.directoriesName);
         return this.browse(directoryId);
     }
     retour(){
-        console.log(this.directories);
-        console.log(this.directoriesName);
         this.directories.pop();
         this.directoriesName.pop();
         /*splice(this.directories.length-1,1);*/
-        if(this.directories.length >= 2 )
+        console.log("directories id",this.directories);
+        console.log("directories name",this.directoriesName);
+        if(this.directories.length >= 1 )
         {
-            return this.browse( this.directories[this.directories.length-2] );
+            return this.browse( this.directories[this.directories.length-1] );
         }
         else{
             return this.browse( this.directories[0] );

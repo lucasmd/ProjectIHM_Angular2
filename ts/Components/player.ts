@@ -9,7 +9,7 @@ const htmlTemplate = `
         <h3>Liste des lecteurs UPnP/DLNA</h3>
         <ul>
             <li *ngFor="let renderer of mediaRenderers">
-                <p>{{renderer.name}}</p>
+                <p alx-dropzone (on-drop)="loadAndPlay(renderer,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
             </li>
         </ul>
     </section>
@@ -18,17 +18,25 @@ const htmlTemplate = `
 @Component({
     selector		: "player",
     template		: htmlTemplate,
-    providers       : []
+    providers       : [CommService]
 })
 export class CompPlayer {
     mediaRenderers  : MediaRenderer[];
     mediaServers    : MediaServer  [];
+    cs                  : CommService;
     constructor(private comm: CommService) {
         console.log( "CommService:", comm);
         comm.init().subscribe( (data: DataInit) => {
             console.log( "init =>", data );
             this.mediaRenderers = data.mediaRenderers;
             this.mediaServers   = data.mediaServers;
+        });
+    }
+    loadAndPlay(mediaRendererId: string, itemId: string, serverId: string) {
+        console.log("loadAndPlay de ",itemId,"depuis", serverId,"sur",mediaRendererId);
+        return this.cs.loadMedia(mediaRendererId, serverId,itemId).then( () => {
+            console.log("fin de chargement, je play");
+            this.cs.play(mediaRendererId);
         });
     }
 };
