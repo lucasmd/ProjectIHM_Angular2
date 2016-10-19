@@ -2,10 +2,11 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, MediaRenderer} from "../Services/CommService";
 
 const htmlTemplate = `
-	<button type="button" (click)="play()"> Play  </button> 
-	<button (click)="pause()"> Pause</button>
-    <button (click)="stop ()"> Stop </button>
+	<button type="button"  (click)="play()"> Play  </button> 
+	<button type="button" (click)="pause()"> Pause</button>
+    <button type="button" (click)="stop ()"> Stop </button>
 	nf : {{nf.id}}
+
 `;
 
 @Component({

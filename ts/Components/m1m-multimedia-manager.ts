@@ -5,28 +5,34 @@ const htmlTemplate = `
 	<h1>Composant de gestion des ressources multimédias</h1>
 	<h1>{{title}}</h1>
 	<hr/>
-    <section>
-        <h3>Liste des lecteurs UPnP/DLNA</h3>
-        <ul>
-            <li *ngFor="let renderer of mediaRenderers">
-                <p>{{renderer.name}}</p>
-                <m1m-pilote [nf]="renderer"></m1m-pilote>
-            </li>
-        </ul>
-    </section>
-    
-    <section>
-        <h3>Liste des serveurs UPnP/DLNA</h3>
-        <ul>
-            <li *ngFor="let server of mediaServers">
-                <p>{{server.name}}</p>
-                <p (dblclick)="browse(server)">
-                    {{server | json}}
-                </p>
-                <component-data-browse [ms]="server"></component-data-browse>
-            </li>
-        </ul>
-    </section>
+    <div class="row" id="players">
+		<div class="col-lg-6" style="background:red;">
+            <section>
+                <h3>Liste des lecteurs UPnP/DLNA</h3>
+                <ul>
+                    <li *ngFor="let renderer of mediaRenderers">
+                        <p>{{renderer.name}}</p>
+                        <m1m-pilote [nf]="renderer"></m1m-pilote>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="col-lg-6" style="background:yellow;">    
+            <section>
+                <h3>Liste des serveurs UPnP/DLNA</h3>
+                <ul>
+                    <li *ngFor="let server of mediaServers">
+                        <p>{{server.name}}</p>
+                        <p (dblclick)="browse(server)">
+                            {{server | json}}
+                        </p>
+                        <component-data-browse [ms]="server"></component-data-browse>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+   
 `;
 
 @Component({
