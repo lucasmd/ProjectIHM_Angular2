@@ -2,12 +2,28 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
 const htmlTemplate = `
-	<h1>Composant de gestion des ressources multimédias</h1>
-	<h1>{{title}}</h1>
-	<hr/>
-    <div class="row" id="players">
-		<div class="col-lg-6" style="background:red;">
-            <section>
+
+<header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Open Source Home Theater Software</div>
+                <div class="intro-heading"> Gerer vos médias sur les serveurs distants</div>
+                <a href="#services" class="btn btn-primary btn-large">Démarrez !</a>
+            </div>
+        </div>
+    </header>
+	<section id="services">
+        <div class="container">
+            <div class="row  text-center">
+				<h1>Composant de gestion des ressources multimédias</h1>
+				<h1>{{title}}</h1>
+			</div>
+			
+			<hr/>
+            <div class="row text-center">
+                <div class="col-md-6">
+                   
+                    <section>
                 <h3>Liste des lecteurs UPnP/DLNA</h3>
                 <ul>
                     <li *ngFor="let renderer of mediaRenderers">
@@ -16,9 +32,10 @@ const htmlTemplate = `
                     </li>
                 </ul>
             </section>
-        </div>
-        <div class="col-lg-6" style="background:yellow;">    
-            <section>
+                </div>
+                <div class="col-md-6">
+                    <section>
+                    
                 <h3>Liste des serveurs UPnP/DLNA</h3>
                 <ul>
                     <li *ngFor="let server of mediaServers">
@@ -30,15 +47,20 @@ const htmlTemplate = `
                     </li>
                 </ul>
             </section>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
    
 `;
 
 @Component({
     selector		: "comp-multimedia-manager",
     template		: htmlTemplate,
-    providers       : [CommService]
+    providers       : [CommService],
+    styleUrls: [
+        'css/css.css'
+    ]
 })
 export class CompMultimediaManager {
     @Input() title	: string;
