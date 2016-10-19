@@ -39,7 +39,9 @@ const htmlTemplate = `
                 <h3>Liste des serveurs UPnP/DLNA</h3>
                 <ul>
                     <li *ngFor="let server of mediaServers">
-                        <p>{{server.name}}</p>
+                        <h3>{{server.name}}</h3>                        
+                        <img src="{{server.iconURL}}" height="42" width="42"/>
+                        <h4>{{server.class}}</h4>
                         <p (dblclick)="browse(server)">
                             {{server | json}}
                         </p>
