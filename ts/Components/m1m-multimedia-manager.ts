@@ -26,7 +26,7 @@ const htmlTemplate = `
                 <h3>Liste des lecteurs UPnP/DLNA</h3>
                 <ul>
                     <li *ngFor="let renderer of mediaRenderers">
-                        <p alx-dropzone (On-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
+                        <p alx-dropzone (on-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
                         <m1m-pilote [nf]="renderer"></m1m-pilote>
                     </li>
                 </ul>
