@@ -12,4 +12,4 @@ git rm -r --cached node_modules
 
 git rm -r --cached js
 
-git rm -r --cached ./idea
+git rm -r --cached .idea
