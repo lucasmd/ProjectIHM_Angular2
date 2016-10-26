@@ -4,19 +4,19 @@ import {myDoc} from "./DragDropUtils";
 /* Polyfill TouchEvent */
 interface MyTouchEvent extends TouchEvent {};
 /*
-interface ShadowRoot extends DocumentFragment {
-    styleSheets     : StyleSheetList;
-    innerHTML       : string;
-    host            : Element;
-    activeElement   : Element;
-    elementFromPoint        (x : number, y : number) : Element;
-    elementsFromPoint       (x : number, y : number) : Element[];
-    caretPositionFromPoint  (x : number, y : number); // => CaretPosition
-};
+ interface ShadowRoot extends DocumentFragment {
+ styleSheets     : StyleSheetList;
+ innerHTML       : string;
+ host            : Element;
+ activeElement   : Element;
+ elementFromPoint        (x : number, y : number) : Element;
+ elementsFromPoint       (x : number, y : number) : Element[];
+ caretPositionFromPoint  (x : number, y : number); // => CaretPosition
+ };
 
-interface ElementWithShadowRoot extends HTMLElement {
-    shadowRoot  : ShadowRoot;
-};*/
+ interface ElementWithShadowRoot extends HTMLElement {
+ shadowRoot  : ShadowRoot;
+ };*/
 
 class DragManager {
     draggedStructures   = new Map<string, AlxDraggable>();
@@ -119,7 +119,7 @@ export class AlxDraggable {
     constructor(el: ElementRef) {
         this.root = el.nativeElement;
         if(!dragDropInit) {
-           console.error("You should add one alx-dragdrop attribute to your code before using alx-draggable");
+            console.error("You should add one alx-dragdrop attribute to your code before using alx-draggable");
         }
         //console.log( "new instance of AlxDraggable", this );
     }
@@ -177,7 +177,7 @@ export class AlxDraggable {
         let element : Element = null;
         if(this.cloneNode === null) {
             //if( Math.abs(x-this.ox) + Math.abs(y-this.oy) > 50 ) {
-                this.getClone();
+            this.getClone();
             //}
         }
         if(this.cloneNode) {
@@ -186,7 +186,7 @@ export class AlxDraggable {
             let visibility = this.cloneNode.style.visibility;
             this.cloneNode.style.visibility = "hidden";
             // let L = <Array<Element>>myDoc.elementsFromPoint(x-window.pageXOffset, y-window.pageYOffset);
-            element = myDoc.elementFromPoint(x-window.pageXOffset, y-window.pageYOffset);
+            element = myDoc.elementFromPoint(x, y); //(x-window.pageXOffset, y-window.pageYOffset);
             //console.log( "element", element );
             this.cloneNode.style.visibility = visibility;
             this.possibleDropZones.forEach( dz => dz.removePointerHover(this.idPointer) );

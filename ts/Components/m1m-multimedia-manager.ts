@@ -21,33 +21,24 @@ const htmlTemplate = `
 			<hr/>
             <div class="row text-center">
                 <div class="col-md-6">
-                   
-                    <section>
-                <h3>Liste des lecteurs UPnP/DLNA</h3>
-                <ul>
-                    <li *ngFor="let renderer of mediaRenderers">
-                        <p alx-dropzone (on-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
-                        <m1m-pilote [nf]="renderer"></m1m-pilote>
-                    </li>
-                </ul>
-            </section>
+                    <player [mediaRenderers]="mediaRenderers"></player>
                 </div>
                 <div class="col-md-6">
                     <section>
                     
-                <h3>Liste des serveurs UPnP/DLNA</h3>
-                <ul>
-                    <li *ngFor="let server of mediaServers">
-                        <h3>{{server.name}}</h3>                        
-                        <img src="{{server.iconURL}}" height="42" width="42"/>
-                        <h4>{{server.class}}</h4>
-                        <p (dblclick)="browse(server)">
-                            {{server | json}}
-                        </p>
-                        <component-data-browse [ms]="server"></component-data-browse>
-                    </li>
-                </ul>
-            </section>
+                        <h3>Liste des serveurs UPnP/DLNA</h3>
+                        <ul>
+                            <li *ngFor="let server of mediaServers">
+                                <h3>{{server.name}}</h3>                        
+                                <img src="{{server.iconURL}}" height="42" width="42"/>
+                                <h4>{{server.class}}</h4>
+                                <p (dblclick)="browse(server)">
+                                    {{server | json}}
+                                </p>
+                                <component-data-browse [ms]="server"></component-data-browse>
+                            </li>
+                        </ul>
+                    </section>
                 </div>
             </div>
         </div>
@@ -59,7 +50,7 @@ const htmlTemplate = `
     template		: htmlTemplate,
     providers       : [CommService],
     styleUrls: [
-        'css/css.css'
+        "css/css.css"
     ]
 })
 export class CompMultimediaManager {
@@ -81,14 +72,6 @@ export class CompMultimediaManager {
             console.log( "Browse", ms.id, directoryId, "=>", data );
             ms.directories  = data.directories;
             this.medias     = data.medias;
-        });
-    }
-
-    loadAndPlay(mediaRendererId: string, itemId: string, serverId: string) {
-        console.log("loadAndPlay de ", itemId, "depuis", serverId, "sur", mediaRendererId);
-        return this.cs.loadMedia(mediaRendererId, serverId, itemId).then(() => {
-            console.log("fin de chargement, je play");
-            this.cs.play(mediaRendererId);
         });
     }
 };

@@ -10,6 +10,7 @@ import {HttpModule} 				from "@angular/http";
 import { CompMultimediaManager } from "./Components/m1m-multimedia-manager";
 import { M1mMedia } from "./Components/media";
 import { M1mPilotage } from "./Components/Pilotage";
+import { CompPlayer } from "./Components/player";
 import { ComponentDataBrowse } from "./Components/Repertoire";
 import { DragDropModule } from "./Components/DragDropModule";
 
@@ -25,7 +26,7 @@ class RootManager {
 //enableProdMode();
 @NgModule({
 	imports     : [BrowserModule, FormsModule, HttpModule, DragDropModule],
-	declarations: [RootManager, CompMultimediaManager, M1mPilotage, M1mMedia, ComponentDataBrowse],
+	declarations: [RootManager, CompMultimediaManager, M1mPilotage, M1mMedia, ComponentDataBrowse, CompPlayer],
 	bootstrap   : [RootManager]
 })
 export class AppModule {}

@@ -52,14 +52,14 @@ export class ComponentDataBrowse implements OnInit  {
             console.log(this.directories);
         });
     }
-    avant(directoryId: string, directoryName : string ){
+    avant(directoryId: string, directoryName : string ) {
         this.directories.push( directoryId );
         this.directoriesName.push( directoryName );
         console.log("directories id",this.directories);
         console.log("directories name",this.directoriesName);
         return this.browse(directoryId);
     }
-    retour(){
+    retour() {
         this.directories.pop();
         this.directoriesName.pop();
         /*splice(this.directories.length-1,1);*/
@@ -69,7 +69,7 @@ export class ComponentDataBrowse implements OnInit  {
         {
             return this.browse( this.directories[this.directories.length-1] );
         }
-        else{
+        else {
             return this.browse( this.directories[0] );
         }
     }
