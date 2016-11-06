@@ -4,7 +4,7 @@ import { DataBrowse, MediaServer, CommService }           from "../Services/Comm
 const htmlTemplate = `
 	<section *ngIf="dataBrowse">
 	    <h3>Contenu</h3>
-	    <p></p>
+	    <p>{{filAriane}}</p>
         <ul>
             <li>
                 <section (dblclick)="retour()">
@@ -35,7 +35,8 @@ const htmlTemplate = `
 export class ComponentDataBrowse implements OnInit  {
     @Input() ms: MediaServer;
     directories         : string[] = [];
-    directoriesName     : string[] = [">"];
+    directoriesName     : string[] = [];
+    filAriane           : string = "Acceuil ";
     dataBrowse          : DataBrowse;
     cs                  : CommService;
     constructor(cs : CommService) {
@@ -57,6 +58,7 @@ export class ComponentDataBrowse implements OnInit  {
         this.directoriesName.push( directoryName );
         console.log("directories id",this.directories);
         console.log("directories name",this.directoriesName);
+        this.miseAJourFilAriane();
         return this.browse(directoryId);
     }
     retour() {
@@ -65,12 +67,19 @@ export class ComponentDataBrowse implements OnInit  {
         /*splice(this.directories.length-1,1);*/
         console.log("directories id",this.directories);
         console.log("directories name",this.directoriesName);
+        this.miseAJourFilAriane();
         if(this.directories.length >= 1 )
         {
             return this.browse( this.directories[this.directories.length-1] );
         }
         else {
             return this.browse( this.directories[0] );
+        }
+    }
+    miseAJourFilAriane(){
+        this.filAriane = "Acceuil ";
+        for(let i = 0; i < this.directoriesName.length; i++) {
+            this.filAriane += " > " + this.directoriesName[i];
         }
     }
     loadAndPlay(mediaRendererId: string, itemId: string) {

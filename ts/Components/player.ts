@@ -23,6 +23,7 @@ const htmlTemplate = `
 })
 export class CompPlayer {
     @Input() mediaRenderers    : MediaRenderer[];
+    state                      : string;
     constructor(private cs : CommService) {
     }
     loadAndPlay(mediaRendererId: string, itemId: string, serverId: string) {
@@ -33,3 +34,10 @@ export class CompPlayer {
         });
     }
 };
+
+// recupération état player
+/*
+this.cs.call(mediaRendererId, "methode?", []).then(() => {
+this.state = state;
+});
+*/
