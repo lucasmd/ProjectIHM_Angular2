@@ -2,25 +2,16 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
 const htmlTemplate = `
-<header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Open Source Home Theater Software</div>
-                <div class="intro-heading"> Gerer vos médias sur les serveurs distants</div>
-                <a href="#services" class="btn btn-primary btn-large">Démarrez !</a>
-            </div>
-        </div>
-    </header>
 	<section alx-dragdrop id="services">
         <div class="container">
-            <div class="row  text-center">
+            <div class="row  text-center" style="background-color: black; font-family: 'Helvetica Neue'; font-style: italic;color: aqua">
 				<h1>Composant de gestion des ressources multimédias</h1>
 				<h1>{{title}}</h1>
 			</div>
 			
 			<hr/>
             <div class="row text-center">
-                <div class="col-md-6">
+                <div class="col-md-6" style="background-color: black;color: white;">
                    
                     <section>
                 <h3>Liste des lecteurs UPnP/DLNA</h3>
@@ -32,7 +23,7 @@ const htmlTemplate = `
                 </ul>
             </section>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" style="background-color: darkslategrey;color: white;">
                     <section>
                     
                 <h3>Liste des serveurs UPnP/DLNA</h3>
