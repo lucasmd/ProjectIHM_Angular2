@@ -14,33 +14,34 @@ const htmlTemplate = `
                 <div class="col-md-6" style="background-color: black;color: white;">
                    
                     <section>
-                <h3>Liste des lecteurs UPnP/DLNA</h3>
-                <ul>
-                    <li *ngFor="let renderer of mediaRenderers">
-                        <p alx-dropzone (On-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
-                        <m1m-pilote [nf]="renderer"></m1m-pilote>
-                    </li>
-                </ul>
-            </section>
-                 <div class="col-md-6">
-                    <player [mediaRenderers]="mediaRenderers"></player>
-                    </div>
-                <div class="col-md-6" style="background-color: darkslategrey;color: white;">
-                    <section>
-                    
-                        <h3>Liste des serveurs UPnP/DLNA</h3>
+                        <h3>Liste des lecteurs UPnP/DLNA</h3>
                         <ul>
-                            <li *ngFor="let server of mediaServers">
-                                <h3>{{server.name}}</h3>                        
-                                <img src="{{server.iconURL}}" height="42" width="42"/>
-                                <h4>{{server.class}}</h4>
-                                <p (dblclick)="browse(server)">
-                                    {{server | json}}
-                                </p>
-                                <component-data-browse [ms]="server"></component-data-browse>
+                            <li *ngFor="let renderer of mediaRenderers">
+                                <p alx-dropzone (On-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
+                                <m1m-pilote [nf]="renderer"></m1m-pilote>
                             </li>
                         </ul>
                     </section>
+                    <div class="col-md-6">
+                        <player [mediaRenderers]="mediaRenderers"></player>
+                    </div>
+                    <div class="col-md-6" style="background-color: darkslategrey;color: white;">
+                        <section>
+                        
+                            <h3>Liste des serveurs UPnP/DLNA</h3>
+                            <ul>
+                                <li *ngFor="let server of mediaServers">
+                                    <h3>{{server.name}}</h3>                        
+                                    <img src="{{server.iconURL}}" height="42" width="42"/>
+                                    <h4>{{server.class}}</h4>
+                                    <p (dblclick)="browse(server)">
+                                        {{server | json}}
+                                    </p>
+                                    <component-data-browse [ms]="server"></component-data-browse>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
