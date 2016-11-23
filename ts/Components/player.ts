@@ -9,7 +9,7 @@ const htmlTemplate = `
         <h3>Liste des lecteurs UPnP/DLNA</h3>
         <ul>
             <li *ngFor="let renderer of mediaRenderers">
-                <p alx-dropzone (alx-ondrop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
+                <h4 alx-dropzone (alx-ondrop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</h4>
                 <m1m-pilote [nf]="renderer"></m1m-pilote>
             </li>
         </ul>

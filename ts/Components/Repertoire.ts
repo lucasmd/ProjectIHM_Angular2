@@ -3,8 +3,8 @@ import { DataBrowse, MediaServer, CommService }           from "../Services/Comm
 
 const htmlTemplate = `
 	<section *ngIf="dataBrowse">
-	    <h3>Contenu</h3>
-	    <p>{{filAriane}}</p>
+	    <h5>Contenu</h5>
+	    <p align="left">{{filAriane}}</p>
         <ul>
             <li>
                 <section (dblclick)="retour()">
@@ -19,7 +19,6 @@ const htmlTemplate = `
             <li *ngFor="let media of dataBrowse.medias">
                 <section [alx-draggable]="{serverId: ms.id, mediaId: media.mediaId}">
                     {{media.title}}
-                    {{media.mediaId}}
                 </section>
             </li>
         </ul>

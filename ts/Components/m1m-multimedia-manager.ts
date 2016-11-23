@@ -4,50 +4,33 @@ import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Servi
 const htmlTemplate = `
 	<section alx-dragdrop id="services">
         <div class="container">
-            <div class="row  text-center" style="background-color: black; font-family: 'Helvetica Neue'; font-style: italic;color: aqua">
+            <div class="row" style="background-color: black; font-family: 'Helvetica Neue';color: darkgrey">
 				<h1>Composant de gestion des ressources multimédias</h1>
 				<h1>{{title}}</h1>
 			</div>
-			
 			<hr/>
             <div class="row text-center">
-                <div class="col-md-6" style="background-color: black;color: white;">
-                   
+                <div class="col-md-6" style="background-color: lightskyblue;color: white;">
                     <section>
-                        <h3>Liste des lecteurs UPnP/DLNA</h3>
+                    
+                        <h3>Liste des serveurs UPnP/DLNA</h3>
                         <ul>
-                            <li *ngFor="let renderer of mediaRenderers">
-                                <p alx-dropzone (On-drop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</p>
-                                <m1m-pilote [nf]="renderer"></m1m-pilote>
+                            <li *ngFor="let server of mediaServers">
+                                <h5 align="left">{{server.name}}</h5><img align="center" src="{{server.iconURL}}" height="21" width="21"/>
+                                <p (dblclick)="browse(server)"></p>
+                                <component-data-browse id="toto"  [ms]="server"></component-data-browse>
                             </li>
                         </ul>
                     </section>
-                    <div class="col-md-6">
+                </div>
+                <div class="col-md-6" style="background-color: lightsalmon;color: white;">
                         <player [mediaRenderers]="mediaRenderers"></player>
-                    </div>
-                    <div class="col-md-6" style="background-color: darkslategrey;color: white;">
-                        <section>
-                        
-                            <h3>Liste des serveurs UPnP/DLNA</h3>
-                            <ul>
-                                <li *ngFor="let server of mediaServers">
-                                    <h3>{{server.name}}</h3>                        
-                                    <img src="{{server.iconURL}}" height="42" width="42"/>
-                                    <h4>{{server.class}}</h4>
-                                    <p (dblclick)="browse(server)">
-                                        {{server | json}}
-                                    </p>
-                                    <component-data-browse [ms]="server"></component-data-browse>
-                                </li>
-                            </ul>
-                        </section>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 `;
-
+/*(dblclick)="toto.classList.toggle('visible')"*/
 @Component({
     selector		: "comp-multimedia-manager",
     template		: htmlTemplate,
