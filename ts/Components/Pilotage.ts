@@ -2,9 +2,9 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, MediaRenderer} from "../Services/CommService";
 
 const htmlTemplate = `
-	<button type="button" (click)="play()"> Play  </button> 
-	<button type="button" (click)="pause()"> Pause</button>
-    <button type="button" (click)="stop ()"> Stop </button>
+	<button class="pilotage" type="button" (click)="play()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+	<button class="pilotage" type="button" (click)="pause()"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
+    <button class="pilotage" type="button" (click)="stop ()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
 `;
 
 @Component({

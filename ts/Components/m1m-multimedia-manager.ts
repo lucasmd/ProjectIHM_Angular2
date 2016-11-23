@@ -4,26 +4,28 @@ import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Servi
 const htmlTemplate = `
 	<section alx-dragdrop id="services">
         <div class="container">
-            <div class="row" style="background-color: black; font-family: 'Helvetica Neue';color: darkgrey">
+            <div id="header" class="row">
 				<h1>Composant de gestion des ressources multimédias</h1>
 				<h1>{{title}}</h1>
 			</div>
-			<hr/>
-            <div class="row text-center">
-                <div class="col-md-6" style="background-color: lightskyblue;color: white;">
+            <div class="row">
+                <div id="serveurs" class="col-md-6">
                     <section>
-                    
-                        <h3>Liste des serveurs UPnP/DLNA</h3>
+                        <h3>Liste de vos centres de données</h3>
                         <ul>
                             <li *ngFor="let server of mediaServers">
-                                <h5 align="left">{{server.name}}</h5><img align="center" src="{{server.iconURL}}" height="21" width="21"/>
+                                <div class="row">
+                                    <h5 align="left">{{server.name}}</h5>&nbsp;&nbsp;
+                                    <img align="center" src="{{server.iconURL}}" height="21" width="21"/>
+                                </div>
                                 <p (dblclick)="browse(server)"></p>
                                 <component-data-browse id="toto"  [ms]="server"></component-data-browse>
+                                <hr id="hrServeurs"/> 
                             </li>
                         </ul>
                     </section>
                 </div>
-                <div class="col-md-6" style="background-color: lightsalmon;color: white;">
+                <div id="players" class="col-md-6">
                         <player [mediaRenderers]="mediaRenderers"></player>
                 </div>
             </div>
