@@ -3,20 +3,20 @@ import { DataBrowse, MediaServer, CommService }           from "../Services/Comm
 
 const htmlTemplate = `
 	<section *ngIf="dataBrowse">
-	    <h5>Contenu</h5>
-	    <p align="left">{{filAriane}}</p>
-        <ul>
-            <li>
+	    <!--<h5>Contenu</h5>-->
+	    <p class="label label-default" align="center" style="font-style: italic;color: black;margin-left: 5%">{{filAriane}}</p><hr id="filArianne"/>
+        <ul class="list-group">
+            <li class="list-group-item active" style="color: darkblue; width: 50%; margin-left: 20%">
                 <section (dblclick)="retour()">
                     Retour                
                 </section>
             </li>
-            <li *ngFor="let directory of dataBrowse.directories">
+            <li *ngFor="let directory of dataBrowse.directories" class="list-group-item list-group-item-action" style="color: darkblue; width: 50%; margin-left: 20% ">
                 <section (dblclick)="avant(directory.directory,directory.name)">
                     {{directory.name}}                
                 </section>
             </li>
-            <li *ngFor="let media of dataBrowse.medias">
+            <li *ngFor="let media of dataBrowse.medias" class="list-group-item list-group-item-action" style="color: darkblue; width: 50%; margin-left: 20%">
                 <section [alx-draggable]="{serverId: ms.id, mediaId: media.mediaId}">
                     {{media.title}}
                 </section>

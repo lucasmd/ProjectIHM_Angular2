@@ -2,9 +2,9 @@ import { Component, Input 	} from "@angular/core";
 import {CommService, DataInit, MediaServer, MediaRenderer, Media} from "../Services/CommService";
 
 const htmlTemplate = `
-	<section alx-dragdrop id="services">
+	<section alx-dragdrop id="services" >
         <div class="container">
-            <div id="header" class="row">
+            <div id="header" class="row ">
 				<h1>Composant de gestion des ressources multimédias</h1>
 				<h1>{{title}}</h1>
 			</div>
@@ -13,21 +13,26 @@ const htmlTemplate = `
                     <section>
                         <h3>Liste de vos centres de données</h3>
                         <ul>
-                            <li *ngFor="let server of mediaServers">
-                                <div class="row">
-                                    <h5 align="left">{{server.name}}</h5>&nbsp;&nbsp;
-                                    <img align="center" src="{{server.iconURL}}" height="21" width="21"/>
+                            <li *ngFor="let server of mediaServers" style="list-style: none">
+                                <div class="modal-content" style="color: darkblue">
+                                    <div class="row list-group-item active" style="box-shadow: 1px 1px 12px #555; border-bottom: thin">
+                                        <h5 align="left">{{server.name}}</h5>&nbsp;&nbsp;
+                                        <img align="center" src="{{server.iconURL}}" height="40" width="40"/>
+                                    </div>
+                                    <p (dblclick)="browse(server)"></p>
+                                    <component-data-browse id="toto"  [ms]="server"></component-data-browse>
+                                    <hr id="hrServeurs"/>
                                 </div>
-                                <p (dblclick)="browse(server)"></p>
-                                <component-data-browse id="toto"  [ms]="server"></component-data-browse>
-                                <hr id="hrServeurs"/> 
+                                <hr/>
                             </li>
                         </ul>
                     </section>
                 </div>
                 <div id="players" class="col-md-6">
                         <player [mediaRenderers]="mediaRenderers"></player>
+                        <hr/>
                 </div>
+                
             </div>
         </div>
     </section>
