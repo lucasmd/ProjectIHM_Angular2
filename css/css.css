@@ -17,16 +17,32 @@ html,body{
 }
 
 #serveurs{
-    background-color: #7fdefa;
+    background-color: transparent;
+    background: rgba(252,210,250,0.0);
+
     color: white;
     font-family: 'Roboto Mono', monospace;
 }
 
+
+#elementListeServeur{
+    list-style: none;
+    margin-right: 11%;
+}
+
+#logoServeur{
+    margin-left: 45%;
+}
+
 #players{
-    background-color: #8a258b;
+    background: rgba(252,210,250,0.0);
     color: white;
     font-family: 'Roboto Mono', monospace;
 
+}
+
+#player1:hover {
+    background: rgba(252,210,250,0.1);
 }
 
 /*.pilotage{
@@ -37,11 +53,11 @@ html,body{
 .pilotage{
     width:40px;
     height:30px;
-    background:white;
-    font:bold 13px Arial;
+    background:transparent;
+    font:bold 18px Arial;
     border-radius:50%;
     border:none;
-    color:#8a258b;
+    color:white;
 }
 
 #hrServeurs{
@@ -64,6 +80,35 @@ html,body{
 }
 .bs-example{
     margin: 20px;
+}
+
+.list-group-item-action{
+    color: darkblue;
+    width: 50%;
+    margin-left: 20%;
+}
+
+#filArianne{
+    font-style: italic;
+    color: black;
+    margin-left: 5%;
+    background-color: transparent;
+}
+
+.repertoireBouton{
+    border: none;
+    background-color: transparent;
+}
+
+#repertoireBoutonRetour{
+    border: none;
+    background-color: transparent;
+}
+
+#liBoutonRetour{
+    color: darkblue;
+    width: 50%;
+    margin-left: 20%;
 }
 
 /*

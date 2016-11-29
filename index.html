@@ -1,5 +1,6 @@
 <!doctype html>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!--link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"-->
 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 <link href="css/css.css" rel="stylesheet">
 <html lang="fr">
@@ -17,7 +18,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap -->
 
-	<script src="js/bootstrap.min.js"></script>
+	<script src="bootstrap.min.js"></script>
 	<!-- 2. Configure SystemJS -->
 	<script src="systemjs.config.js"></script>
 	<script>
@@ -27,11 +28,13 @@
 </head>
 
 <!--style="background-image: url('src/background.jpg')"-->
-<body style="background-image: url('src/background.jpg');background-repeat:no-repeat;">
+<body style="background-image: url('src/background.jpg');background-repeat:no-repeat;background-attachment:fixed;">
 <root-manager></root-manager>
 
-$('.carousel').carousel({
-interval: 2000
-})
+<script type="text/javascript">
+	$('.carousel').carousel('cycle');
+</script>
+
+
 </body>
 </html>

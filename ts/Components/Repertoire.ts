@@ -4,22 +4,22 @@ import { DataBrowse, MediaServer, CommService }           from "../Services/Comm
 const htmlTemplate = `
 	<section *ngIf="dataBrowse">
 	    <!--<h5>Contenu</h5>-->
-	    <p class="label label-default" align="center" style="font-style: italic;color: black;margin-left: 5%">{{filAriane}}</p><hr id="filArianne"/>
+	    <p class="label label-default" id="filArianne" align="center">{{filAriane}}</p><hr id="filArianne"/>
         <ul class="list-group">
-            <li class="list-group-item active" style="color: darkblue; width: 50%; margin-left: 20%">
-                <section (dblclick)="retour()">
+            <li class="list-group-item active" id="liBoutonRetour">
+                <button id="repertoireBoutonRetour" (click)="retour()">
                     Retour                
-                </section>
+                </button>
             </li>
-            <li *ngFor="let directory of dataBrowse.directories" class="list-group-item list-group-item-action" style="color: darkblue; width: 50%; margin-left: 20% ">
-                <section (dblclick)="avant(directory.directory,directory.name)">
+            <li *ngFor="let directory of dataBrowse.directories" class="list-group-item list-group-item-action">
+                <button class="repertoireBouton" (click)="avant(directory.directory,directory.name)">
                     {{directory.name}}                
-                </section>
+                </button>
             </li>
-            <li *ngFor="let media of dataBrowse.medias" class="list-group-item list-group-item-action" style="color: darkblue; width: 50%; margin-left: 20%">
-                <section [alx-draggable]="{serverId: ms.id, mediaId: media.mediaId}">
+            <li *ngFor="let media of dataBrowse.medias" class="list-group-item list-group-item-action">
+                <button class="repertoireBouton" [alx-draggable]="{serverId: ms.id, mediaId: media.mediaId}">
                     {{media.title}}
-                </section>
+                </button>
             </li>
         </ul>
 	</section>

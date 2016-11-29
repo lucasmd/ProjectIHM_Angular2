@@ -6,8 +6,8 @@ const htmlTemplate = `
         <div class="container">
             <div id="header" class="row">
 				<!--<h1>Composant de gestion des ressources multimédias</h1>
-				<h1>{{title}}</h1>-->
-				<h1 align="center" style="margin-left: 45%"> DA - Player </h1>
+				<h1>{{title}}</h1>
+				<h1 align="center" style="margin-left: 45%"> DA - Player </h1-->
 				
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                   <!-- Indicators -->
@@ -20,18 +20,15 @@ const htmlTemplate = `
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                      <img src="..." alt="...">
+                      <img src="src/banniere.png" alt="...">
                       <div class="carousel-caption">
-                        ...
                       </div>
                     </div>
                     <div class="item">
-                      <img src="..." alt="...">
+                      <img src="src/background.jpg" alt="...">
                       <div class="carousel-caption">
-                        ...
                       </div>
                     </div>
-                    ...
                   </div>
                 
                   <!-- Controls -->
@@ -49,13 +46,17 @@ const htmlTemplate = `
             <div class="row">
                 <div id="serveurs" class="col-md-6" >
                     <section>
-                        <h3>Liste de vos centres de données</h3>
+                        <div class="row">
+                        <img align="center" src="src/servericon.png" height="80" width="80"/>
+                        <h3 style="margin-left: 5%" align="center">Centres de données</h3>
+                        </div>
                         <ul>
-                            <li *ngFor="let server of mediaServers" style="list-style: none">
+                            <hr/>
+                            <li *ngFor="let server of mediaServers" id="elementListeServeur">
                                 <div class="modal-content" style="color: darkblue">
                                     <div class="row list-group-item active" style="box-shadow: 1px 1px 12px #555; border-bottom: thin;">
                                         <h5 align="left">{{server.name}}</h5>&nbsp;&nbsp;
-                                        <img align="center" src="{{server.iconURL}}" height="40" width="40"/>
+                                        <img id="logoServeur" src="{{server.iconURL}}" height="40" width="40"/>
                                     </div>
                                     <p (dblclick)="browse(server)"></p>
                                     <component-data-browse id="toto"  [ms]="server"></component-data-browse>
@@ -68,7 +69,6 @@ const htmlTemplate = `
                 </div>
                 <div id="players" class="col-md-6">
                         <player [mediaRenderers]="mediaRenderers"></player>
-                        <hr/>
                 </div>
                 
             </div>

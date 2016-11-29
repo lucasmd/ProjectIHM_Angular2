@@ -6,11 +6,16 @@ import {CommService, MediaRenderer} from "../Services/CommService";
 
 const htmlTemplate = `
     <section>
-        <h3>Liste de vos lecteurs</h3>
+        <div class="row">
+        <img align="center" src="src/playericon.png" height="80" width="80"/>
+        <h3 style="margin-left: 5%" align="center">Lecteurs</h3>
+        </div>
+        <hr/>
         <ul>
-            <li *ngFor="let renderer of mediaRenderers">
+            <li id="player1" *ngFor="let renderer of mediaRenderers">
                 <h4 alx-dropzone (alx-ondrop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</h4>
                 <m1m-pilote [nf]="renderer"></m1m-pilote>
+                <hr width="65%">
             </li>
         </ul>
     </section>
