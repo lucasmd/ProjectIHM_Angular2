@@ -28,6 +28,7 @@
     "zone.js": "^0.6.25"
   },
   "devDependencies": {
+    "@types/jquery": "^2.0.34",
     "codelyzer": "0.0.28",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -36,6 +37,8 @@
     "gulp-tslint": "^6.1.1",
     "gulp-tslint-stylish": "^1.1.1",
     "gulp-typescript": "^2.13.6",
+    "jquery": "^3.1.1",
+    "ng2-bootstrap": "^1.1.16",
     "through2": "^2.0.1",
     "tslint": "^3.7.3",
     "typescript": "^2.0.2",

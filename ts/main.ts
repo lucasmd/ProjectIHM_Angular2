@@ -14,6 +14,9 @@ import { CompPlayer } from "./Components/player";
 import { ComponentDataBrowse } from "./Components/Repertoire";
 import { DragDropModule } from "./Components/DragDropModule";
 
+import "../node_modules/jquery/dist/jquery.min.js";
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
+
 @Component({
 	selector	: "root-manager",
 	template	: `<comp-multimedia-manager title="Gestion des services UPnP/DLNA"></comp-multimedia-manager>
