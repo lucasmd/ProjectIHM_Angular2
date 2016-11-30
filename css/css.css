@@ -119,6 +119,7 @@ html,body{
 
 #filArianne{
     font-style: italic;
+    font-size: small;
     color: white;
     margin-left: 5%;
     background-color: transparent;
@@ -160,3 +161,28 @@ html,body{
 .list-group-item.active{
     background-color: white;
 }
+
+#sectionNavigation{
+    height: 0px;
+}
+
+#enteteServeur:hover #sectionNavigation{
+    transition-property: height;
+    transition-duration: 1s;
+    transition-delay: 0s;
+    height: auto;
+}
+
+#ulNav{
+    height: 0;
+    opacity: 0;
+}
+
+#enteteServeur:hover #ulNav{
+    transition-property: opacity,height;
+    transition-duration: 1s;
+    transition-delay: 0s;
+    opacity: 100;
+    height: auto;
+}
+

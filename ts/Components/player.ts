@@ -6,9 +6,9 @@ import {CommService, MediaRenderer} from "../Services/CommService";
 
 const htmlTemplate = `
     <section>
-        <div class="row">
-        <img align="center" src="src/playericon.png" height="80" width="80"/>
-        <h3 style="margin-left: 5%; font-family: Impact" align="center">Lecteurs</h3>
+        <div style="margin-left: 70%" class="row">
+        <h3  style="font-family: Impact" align="center">Lecteurs</h3>
+        <img style="margin-left: 10%" src="src/playericon.png" height="80" width="80"/>
         </div>
         <hr/>
         <ul>

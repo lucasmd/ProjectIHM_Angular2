@@ -2,10 +2,10 @@ import {Component, Input, OnInit}   from "@angular/core";
 import { DataBrowse, MediaServer, CommService }           from "../Services/CommService";
 
 const htmlTemplate = `
-	<section *ngIf="dataBrowse">
+	<section id="sectionNavigation" *ngIf="dataBrowse">
 	    <!--<h5>Contenu</h5>-->
 	    <p class="label label-default" id="filArianne" align="center">{{filAriane}}</p><hr style="visibility: hidden;"/>
-        <ul class="list-group">
+        <ul id="ulNav" class="list-group">
             <li class="list-group-item active" id="liBoutonRetour">
                 <button id="repertoireBoutonRetour" (click)="retour()" >
                     Retour                

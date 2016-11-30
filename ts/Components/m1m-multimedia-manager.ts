@@ -43,7 +43,7 @@ const htmlTemplate = `
                 </div>
                 			
 			</div>
-			<!--img src="src/logo.png" height="100" width="100"/-->
+			<!--img style="margin-left: 45%" src="src/logo.png" height="125" width="130"/*-->
             <div class="row">
                 <div id="serveurs" class="col-md-6" >
                     <section >
@@ -54,13 +54,13 @@ const htmlTemplate = `
                         <ul>
                             <hr>
                             <li *ngFor="let server of mediaServers" id="elementListeServeur">
-                                <div class="modal-content" style="color: darkblue; background-color: transparent">
+                                <div id="enteteServeur" class="modal-content" style="color: darkblue; background-color: transparent">
                                     <div class="row list-group-item active" style="box-shadow: 1px 1px 12px #555; border-bottom: thin;">
                                         <h5 style="color: black" align="left">{{server.name}}</h5>&nbsp;&nbsp;
                                         <img id="logoServeur" src="{{server.iconURL}}" height="40" width="40"/>
                                     </div>
                                     <p (dblclick)="browse(server)"></p>
-                                    <component-data-browse [ms]="server"></component-data-browse>
+                                    <component-data-browse class="fichier" [ms]="server"></component-data-browse>
                                     <hr id="hrServeurs"/>
                                 </div>
                                 <hr/>
