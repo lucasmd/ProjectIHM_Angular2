@@ -41,14 +41,35 @@ html,body{
 
 }
 
-#player1:hover {
-    background: rgba(252,210,250,0.1);
+#player{
+    font-family:"URW Gothic L";
+    font-size: 10px;
+    color:transparent;
+    border: 3px solid rgba(0,0,0,.2);
+    border-top-color: rgba(0, 0, 0, 0.2);
+
+    border-right-color: rgba(0, 0, 0, 0.2);
+
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+
+    border-left-color: rgba(0, 0, 0, 0.2);
+
+    border-image-source: initial;
+    border-image-slice: initial;
+
+    border-image-repeat: initial;
+    border-radius: 6px;
+    margin-top: 5%;
 }
 
-/*.pilotage{
-    font-family: "Comic Sans MS";
-    font-color:black;
-}*/
+#titrePlayer{
+    color: white;
+    font-size: 20px;
+}
+
+#player:hover {
+    background: rgba(252,210,250,0.1);
+}
 
 .pilotage{
     width:40px;
@@ -60,9 +81,16 @@ html,body{
     color:white;
 }
 
+.pilotage:hover{
+    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+}
+
 #hrServeurs{
     color:black;
     align-content: center;
+    visibility: hidden;
 }
 
 #filArianne{
@@ -83,14 +111,15 @@ html,body{
 }
 
 .list-group-item-action{
-    color: darkblue;
     width: 50%;
     margin-left: 20%;
+    background-color: transparent;
+
 }
 
 #filArianne{
     font-style: italic;
-    color: black;
+    color: white;
     margin-left: 5%;
     background-color: transparent;
 }
@@ -98,28 +127,36 @@ html,body{
 .repertoireBouton{
     border: none;
     background-color: transparent;
+    font-family: Georgia;
+    color: white;
+    size: auto;
+}
+
+.repertoires:hover{
+    background: rgba(252,210,250,0.1);
 }
 
 #repertoireBoutonRetour{
     border: none;
     background-color: transparent;
+    color: black;
 }
 
 #liBoutonRetour{
-    color: darkblue;
+    background-color: white;
+    color: transparent;
     width: 50%;
     margin-left: 20%;
 }
 
-/*
-.col-md-6{
-    position: relative;
-    width:50%;
-    top:30%;
+#liBoutonRetour:hover{
+    background: rgba(232,108,104,0.8);
 }
 
-.col-md-7{
-
-    position: relative;
-    left:50%;
-}*/
+.dragHover{
+    background-color: aqua;
+    color: aqua;
+}
+.list-group-item.active{
+    background-color: white;
+}

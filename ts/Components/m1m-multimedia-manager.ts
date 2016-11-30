@@ -43,23 +43,24 @@ const htmlTemplate = `
                 </div>
                 			
 			</div>
+			<!--img src="src/logo.png" height="100" width="100"/-->
             <div class="row">
                 <div id="serveurs" class="col-md-6" >
-                    <section>
-                        <div class="row">
+                    <section >
+                        <div class="row" >
                         <img align="center" src="src/servericon.png" height="80" width="80"/>
-                        <h3 style="margin-left: 5%" align="center">Centres de données</h3>
+                        <h3 style="margin-left: 5%; font-family: Impact" align="center">Centres de données</h3>
                         </div>
                         <ul>
-                            <hr/>
+                            <hr>
                             <li *ngFor="let server of mediaServers" id="elementListeServeur">
-                                <div class="modal-content" style="color: darkblue">
+                                <div class="modal-content" style="color: darkblue; background-color: transparent">
                                     <div class="row list-group-item active" style="box-shadow: 1px 1px 12px #555; border-bottom: thin;">
-                                        <h5 align="left">{{server.name}}</h5>&nbsp;&nbsp;
+                                        <h5 style="color: black" align="left">{{server.name}}</h5>&nbsp;&nbsp;
                                         <img id="logoServeur" src="{{server.iconURL}}" height="40" width="40"/>
                                     </div>
                                     <p (dblclick)="browse(server)"></p>
-                                    <component-data-browse id="toto"  [ms]="server"></component-data-browse>
+                                    <component-data-browse [ms]="server"></component-data-browse>
                                     <hr id="hrServeurs"/>
                                 </div>
                                 <hr/>
@@ -75,7 +76,9 @@ const htmlTemplate = `
         </div>
     </section>
 `;
+
 /*(dblclick)="toto.classList.toggle('visible')"*/
+
 @Component({
     selector		: "comp-multimedia-manager",
     template		: htmlTemplate,

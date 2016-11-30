@@ -4,20 +4,20 @@ import { DataBrowse, MediaServer, CommService }           from "../Services/Comm
 const htmlTemplate = `
 	<section *ngIf="dataBrowse">
 	    <!--<h5>Contenu</h5>-->
-	    <p class="label label-default" id="filArianne" align="center">{{filAriane}}</p><hr id="filArianne"/>
+	    <p class="label label-default" id="filArianne" align="center">{{filAriane}}</p><hr style="visibility: hidden;"/>
         <ul class="list-group">
             <li class="list-group-item active" id="liBoutonRetour">
-                <button id="repertoireBoutonRetour" (click)="retour()">
+                <button id="repertoireBoutonRetour" (click)="retour()" >
                     Retour                
                 </button>
             </li>
-            <li *ngFor="let directory of dataBrowse.directories" class="list-group-item list-group-item-action">
-                <button class="repertoireBouton" (click)="avant(directory.directory,directory.name)">
+            <li *ngFor="let directory of dataBrowse.directories" class="list-group-item list-group-item-action repertoires" >
+                <button class="repertoireBouton" (click)="avant(directory.directory,directory.name)" >
                     {{directory.name}}                
                 </button>
             </li>
-            <li *ngFor="let media of dataBrowse.medias" class="list-group-item list-group-item-action">
-                <button class="repertoireBouton" [alx-draggable]="{serverId: ms.id, mediaId: media.mediaId}">
+            <li *ngFor="let media of dataBrowse.medias" class="list-group-item list-group-item-action repertoires">
+                <button  class="repertoireBouton" [alx-draggable]="{serverId: ms.id, mediaId: media.mediaId}">
                     {{media.title}}
                 </button>
             </li>
@@ -35,7 +35,7 @@ export class ComponentDataBrowse implements OnInit  {
     @Input() ms: MediaServer;
     directories         : string[] = [];
     directoriesName     : string[] = [];
-    filAriane           : string = "Acceuil ";
+    filAriane           : string = "Accueil ";
     dataBrowse          : DataBrowse;
     cs                  : CommService;
     constructor(cs : CommService) {

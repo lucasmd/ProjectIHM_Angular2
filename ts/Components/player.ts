@@ -8,14 +8,14 @@ const htmlTemplate = `
     <section>
         <div class="row">
         <img align="center" src="src/playericon.png" height="80" width="80"/>
-        <h3 style="margin-left: 5%" align="center">Lecteurs</h3>
+        <h3 style="margin-left: 5%; font-family: Impact" align="center">Lecteurs</h3>
         </div>
         <hr/>
         <ul>
-            <li id="player1" *ngFor="let renderer of mediaRenderers">
-                <h4 alx-dropzone (alx-ondrop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)">{{renderer.name}}</h4>
+            <li id="player" *ngFor="let renderer of mediaRenderers" alx-dropzone (alx-ondrop)="loadAndPlay(renderer.id,$event.mediaId,$event.serverId)" (alx-draghover-css)="dragHover">
                 <m1m-pilote [nf]="renderer"></m1m-pilote>
-                <hr width="65%">
+                <hr width="65%" style="margin-top: 0%; margin-bottom: 5px">
+                <h4 style="margin-bottom: 7%" align="center" id="titrePlayer">&nbsp;&nbsp;&nbsp;&nbsp;{{renderer.name}}</h4>
             </li>
         </ul>
     </section>
